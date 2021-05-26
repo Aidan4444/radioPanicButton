@@ -11,9 +11,9 @@
   <p align="center">
     This script is easy to setup and is fully configurable.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Aidan4444/radioPanicButton/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Aidan4444/radioPanicButton/issues">Request Feature</a>
   </p>
 </p>
 
