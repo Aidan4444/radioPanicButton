@@ -14,7 +14,7 @@ AddEventHandler('radioPanicButton:server:sendBlip', function(coords, streetName,
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             if config.blipsInBroadcastChannels then 
                 for _, broadcastChannel in pairs(config.broadcastChannels) do
-                    local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
+                    local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
                     for _, player in pairs(playersInBroadcastChannels) do 
                         for id, _ in pairs(player) do 
                             if tostring(playerId) == tostring(id) then 
@@ -64,7 +64,7 @@ AddEventHandler('radioPanicButton:server:panicNotify', function(streetName, offi
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             if config.blipsInBroadcastChannels then 
                 for _, broadcastChannel in pairs(config.broadcastChannels) do
-                    local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
+                    local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
                     for _, player in pairs(playersInBroadcastChannels) do 
                         for id, _ in pairs(player) do 
                             if tostring(playerId) == tostring(id) then 
@@ -85,7 +85,7 @@ AddEventHandler('radioPanicButton:server:panicButtonAudio', function(soundFile, 
     for _, playerId in ipairs(GetPlayers()) do 
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             for _, broadcastChannel in pairs(config.broadcastChannels) do
-                local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
+                local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
                 for _, player in pairs(playersInBroadcastChannels) do 
                     for id, _ in pairs(player) do 
                         if tostring(playerId) == tostring(id) then 
