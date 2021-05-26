@@ -68,7 +68,7 @@ AddEventHandler('radioPanicButton:server:panicNotify', function(streetName, offi
                     for _, player in pairs(playersInBroadcastChannels) do 
                         for id, _ in pairs(player) do 
                             if tostring(playerId) == tostring(id) then 
-                                TriggerClientEvent('radioPanicButton:client:panicBlip', playerId, coords, streetName, playerName)
+                                TriggerClientEvent('radioPanicButton:client:panicNotify', playerId, streetName, playerName)
                             end 
                         end 
                     end 
