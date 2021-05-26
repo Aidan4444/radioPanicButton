@@ -1,9 +1,9 @@
 {
-    "version": "1.021",
+    "version": "1.026",
     "changelog": "https://github.com/Aidan_ogg/radioPanicButton/releases/latest",
 
     "fivem": {
-        "version": "1.021",
+        "version": "1.026",
         "changelog": "Added more config options."
     }
 }
