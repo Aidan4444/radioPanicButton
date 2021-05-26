@@ -2,10 +2,10 @@ function checkRadioChannels(frequency)
     for _, radioChannel in pairs(config.radioChannels) do
         if radioChannel == frequency then 
             return true 
-        else 
-            return false
         end 
     end 
+    
+    return false
 end 
 
 function checkBroadcastChannels(frequency)
