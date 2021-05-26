@@ -22,12 +22,12 @@ config = {
 
     radioChannels = { 
         [1] = 1, -- Allows the panic button to be used in frequency 1
-        [2] = 2, -- Allows the panic button to be used in frequency 1
-        [3] = 3, -- Allows the panic button to be used in frequency 1
+        [2] = 2, -- Allows the panic button to be used in frequency 2
+        [3] = 3, -- Allows the panic button to be used in frequency 3
     },
 
     broadcastChannels = {
         [1] = 1, -- Broadcasts the panic button to frequency 1 
-        [2] = 2, -- Broadcasts the panic button to frequency 1 
+        [2] = 2, -- Broadcasts the panic button to frequency 2 
     },
 }
