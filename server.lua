@@ -64,7 +64,7 @@ AddEventHandler('radioPanicButton:server:panicNotify', function(streetName, offi
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             if config.blipsInBroadcastChannels then 
                 for _, broadcastChannel in pairs(config.broadcastChannels) do
-                    local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
+                    local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
                     for _, player in pairs(playersInBroadcastChannels) do 
                         for id, _ in pairs(player) do 
                             if tostring(playerId) == tostring(id) then 
@@ -85,7 +85,7 @@ AddEventHandler('radioPanicButton:server:panicButtonAudio', function(soundFile, 
     for _, playerId in ipairs(GetPlayers()) do 
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             for _, broadcastChannel in pairs(config.broadcastChannels) do
-                local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
+                local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
                 for _, player in pairs(playersInBroadcastChannels) do 
                     for id, _ in pairs(player) do 
                         if tostring(playerId) == tostring(id) then 
@@ -114,15 +114,21 @@ function GetDiscordUserTag(source)
     return GetPlayerName(source)
 end
 
+function GetVersion()
+    local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
+    local verContent = json.decode(verFile)
+    return verContent.fivem.version
+end
+
 curVersion = GetVersion()
-local updatePath = "/Aidan4444/radioPanicButton"
+local updatePath = "Aidan4444/radioPanicButton"
 local resourceName = "Radio Panic Button ("..GetCurrentResourceName()..")"
 function checkVersion(err,response, headers)
     if err == 200 then
         local data = json.decode(response)
         local remoteVersion = data.fivem.version
         local changelog = data.fivem.changelog
-        PrintDebugMessage("Version check returned "..err..", Local Version: "..curVersion..", Remote Version: "..remoteVersion, 4)
+        print("^5" .. GetCurrentResourceName() .. "^7: Version check returned "..err..", Local Version: "..curVersion..", Remote Version: "..remoteVersion .. "^7\n")
         if curVersion ~= remoteVersion and tonumber(curVersion) < tonumber(remoteVersion) then
             print("\n--------------------------------------------------------------------------")
             print("\n"..resourceName.." is outdated.\nNewest Version: "..remoteVersion.."\nYour Version: "..curVersion.."\nPlease update it from https://github.com"..updatePath.."")
@@ -135,7 +141,7 @@ function checkVersion(err,response, headers)
             --print(resourceName.." is up to date!")
         end
     else
-        PrintDebugMessage("radioPanicButton Version Check failed, please make sure its updated!")
+        print("radioPanicButton Version Check failed, please make sure its updated!")
     end
     
     SetTimeout(3600000, checkVersionHTTPRequest)
@@ -145,7 +151,4 @@ function checkVersionHTTPRequest()
     PerformHttpRequest("https://raw.githubusercontent.com/"..updatePath.."/master/version.json", checkVersion, "GET")
 end
 
-function GetVersion()
-    local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
-    local verContent = json.decode(verFile)
-end
+checkVersionHTTPRequest()
