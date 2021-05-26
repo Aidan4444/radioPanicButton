@@ -2,11 +2,11 @@ leoAcePerm = false
 
 RegisterKeyMapping('+radioPanicButton', 'Panic Button On Radio', 'keyboard', config.panicButtonKey)
 RegisterCommand('+radioPanicButton', function()
-   if exports['rp-radio2']:IsRadioOn() then 
+   if exports['rp-radio']:IsRadioOn() then 
         local currentFrequency = exports['mumble-voip']:GetPlayerRadioChannel(GetPlayerServerId(PlayerId()))
         if checkRadioChannels(currentFrequency) then 
             if config.haveRadioOpen then 
-                if exports['rp-radio2']:IsRadioOpen() then 
+                if exports['rp-radio']:IsRadioOpen() then 
                     panicButton()
                 end
             else 
