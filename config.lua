@@ -2,7 +2,7 @@ config = {
     acePermissionName = 'panicButton', -- Example for config: add_ace group.leo "panicButton" allow [For Blips and Notification]
 
     logToDiscord = false, -- Logs panic button presses to Discord
-    useDiscordNameForLog = true -- If set to true it will put the user's @ instead of their in game name, unless they don't have a Discord account linked
+    useDiscordNameForLog = true, -- If set to true it will put the user's @ instead of their in game name, unless they don't have a Discord account linked
     discordWebhookUrl = '', -- Webhook to log panic button presses to 
 
     playPanicButtonAudio = true, -- Plays a beeping noise when you hit the panic button
