@@ -25,6 +25,7 @@
   <ol>
     <li><a href="#features">Features</a></li>
     <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#showcase">Showcase</a></li>
     <li><a href="#example-config">Example Config</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -48,6 +49,14 @@
 ## Requirements
 * [mumble-voip](https://forum.cfx.re/t/release-mumble-voip-rp-radio/1083683)
 * [rp-radio](https://forum.cfx.re/t/release-mumble-voip-rp-radio/1083683)
+
+
+## Showcase
+[Showcase Video](https://cdn.discordapp.com/attachments/831462056229994497/846989705085845504/radioPanicButton.mp4)
+
+![image|690x29, 100%](https://cdn.discordapp.com/attachments/831462056229994497/846989150535417876/8026304cff389a4a54ca5dcfc92911f6.png)
+
+![image|333x163, 100%](https://cdn.discordapp.com/attachments/831462056229994497/846989127601356800/a6135ec06fd504aacbb2e48ca9ca224e.png)
 
 
 ## Example Config
