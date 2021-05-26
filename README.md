@@ -99,9 +99,9 @@ config = {
 
 ## Installation
 
-1. Download the latest [release](https://github.com/)
+1. Download the latest [release](https://github.com/Aidan4444/radioPanicButton/releases/latest)
 2. Rename the resource to just "radioPanicButton"
-3. Configure the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/main/config.lua) file 
+3. Configure the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/master/config.lua) file 
 4. Add to your server.cfg `ensure radioPanicButton`
 
 
