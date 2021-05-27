@@ -52,7 +52,7 @@
 
 
 ## Showcase
-[Showcase Video](https://cdn.discordapp.com/attachments/831462056229994497/846989705085845504/radioPanicButton.mp4)
+[Showcase Video](https://streamable.com/rc6ksz)
 
 ![image|690x29, 100%](https://cdn.discordapp.com/attachments/831462056229994497/846989150535417876/8026304cff389a4a54ca5dcfc92911f6.png)
 
