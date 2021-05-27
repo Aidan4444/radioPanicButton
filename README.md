@@ -127,7 +127,7 @@ Discord      - [Aidan_ogg#0001](https://discordapp.com/users/705110046563893259)
 
 FiveM Forums - [Aidan_ogg](https://forum.cfx.re/u/aidan_ogg)
 
-FiveM Post   - [Radio Panic Button](https://forum.cfx.re/u/aidan_ogg)
+FiveM Post   - [Radio Panic Button](https://forum.cfx.re/t/standalone-release-radio-panic-button-rp-radio/2969686)
 
 
 
