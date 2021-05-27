@@ -2,6 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -144,3 +145,5 @@ FiveM Post   - [Radio Panic Button](https://forum.cfx.re/t/standalone-release-ra
 [stars-url]: https://github.com/Aidan4444/radioPanicButton/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Aidan4444/radioPanicButton.svg?style=for-the-badge
 [issues-url]: https://github.com/Aidan4444/radioPanicButton/issues
+[license-shield]: https://img.shields.io/github/license/Aidan4444/radioPanicButton.svg?style=for-the-badge
+[license-url]: https://github.com/Aidan4444/radioPanicButton/blob/master/LICENSE
