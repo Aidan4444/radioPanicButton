@@ -1,4 +1,6 @@
 config = {
+    usePmaVoice = false, -- If set to true it will use pma-voice, if set to false it will use mumble-voip
+
     acePermissionName = 'panicButton', -- Example for config: add_ace group.leo panicButton allow [For Blips and Notification]
 
     logToDiscord = false, -- Logs panic button presses to Discord
@@ -16,18 +18,18 @@ config = {
     showNotification = true, -- Shows a notification saying "[playerName] pressed their panic button at [streetName]"
     notificationsInBroadcastChannels = true, -- Will only show notifications to the people in the channels specified in the broadcastChannels table below
 
-    haveRadioOpen = false, -- Makes it so you have to have your radio open to hit the panic button
+    haveRadioOpen = true, -- Makes it so you have to have your radio open to hit the panic button
 
     panicButtonKey = 'n', -- This will be the original key for the panic button, each client can further customise the keybind inn their GTA V keybinds menu under the FiveM tab
 
     radioChannels = { 
         [1] = 1, -- Allows the panic button to be used in frequency 1
-        [2] = 2, -- Allows the panic button to be used in frequency 2
-        [3] = 3, -- Allows the panic button to be used in frequency 3
+        [2] = 2, -- Allows the panic button to be used in frequency 1
+        [3] = 3, -- Allows the panic button to be used in frequency 1
     },
 
     broadcastChannels = {
         [1] = 1, -- Broadcasts the panic button to frequency 1 
-        [2] = 2, -- Broadcasts the panic button to frequency 2 
+        [2] = 2, -- Broadcasts the panic button to frequency 1 
     },
 }
