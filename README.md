@@ -119,7 +119,7 @@ config = {
 6. In the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/master/config.lua) file set `usePmaVoice = true`
 7. Add the following code below to **pma-voice**
 
-### server/server.lua
+### pma-voice/server/server.lua
 ```lua
 function getPlayersInRadioChannel(channel)
 	local returnChannel = radioData[channel]
@@ -154,7 +154,7 @@ exports('GetPlayersInRadioChannels', getPlayersInRadioChannels)
 exports('GetPlayersInRadioChannels', getPlayersInRadioChannels)
 ```
 
-### client/client.lua
+### pma-voice/client/client.lua
 ```lua
 function GetPlayersInRadioChannels(...)
 
