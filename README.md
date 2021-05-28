@@ -28,7 +28,8 @@
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#showcase">Showcase</a></li>
     <li><a href="#example-config">Example Config</a></li>
-    <li><a href="#installation">Installation (mumble-voip)</a></li>
+    <li><a href="#installation-mumble-voip">Installation (mumble-voip)</a></li>
+    <li><a href="#installation-pma-voice">Installation (pma-voice)</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
