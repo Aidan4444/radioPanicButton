@@ -28,7 +28,7 @@
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#showcase">Showcase</a></li>
     <li><a href="#example-config">Example Config</a></li>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#installation">Installation (mumble-voip)</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -45,10 +45,11 @@
 * Notification for panic button
 * Each client can customize their keybind
 * Fully customizable
+* Supports mumble-voip and pma-voice
 
 
 ## Requirements
-* [mumble-voip](https://forum.cfx.re/t/release-mumble-voip-rp-radio/1083683)
+* [mumble-voip](https://forum.cfx.re/t/release-mumble-voip-rp-radio/1083683) or [pma-voice](https://forum.cfx.re/t/release-voip-pma-voice-mumble-voip-alternative/1896255)
 * [rp-radio](https://forum.cfx.re/t/release-mumble-voip-rp-radio/1083683)
 
 
@@ -63,10 +64,12 @@
 ## Example Config
 ```lua
 config = {
-    acePermissionName = 'panicButton', -- Example for config: add_ace group.leo "panicButton" allow [For Blips and Notification]
+    usePmaVoice = false, -- If set to true it will use pma-voice, if set to false it will use mumble-voip
+
+    acePermissionName = 'panicButton', -- Example for config: add_ace group.leo panicButton allow [For Blips and Notification]
 
     logToDiscord = false, -- Logs panic button presses to Discord
-    useDiscordNameForLog = true -- If set to true it will put the user's @ instead of their in game name, unless they don't have a Discord account linked
+    useDiscordNameForLog = true, -- If set to true it will put the user's @ instead of their in game name, unless they don't have a Discord account linked
     discordWebhookUrl = '', -- Webhook to log panic button presses to 
 
     playPanicButtonAudio = true, -- Plays a beeping noise when you hit the panic button
@@ -80,7 +83,7 @@ config = {
     showNotification = true, -- Shows a notification saying "[playerName] pressed their panic button at [streetName]"
     notificationsInBroadcastChannels = true, -- Will only show notifications to the people in the channels specified in the broadcastChannels table below
 
-    haveRadioOpen = false, -- Makes it so you have to have your radio open to hit the panic button
+    haveRadioOpen = true, -- Makes it so you have to have your radio open to hit the panic button
 
     panicButtonKey = 'n', -- This will be the original key for the panic button, each client can further customise the keybind inn their GTA V keybinds menu under the FiveM tab
 
@@ -98,12 +101,106 @@ config = {
 ```
 
 
-## Installation
-
+## Installation (mumble-voip)
 1. Download the latest [release](https://github.com/Aidan4444/radioPanicButton/releases/latest)
 2. Rename the resource to just "radioPanicButton"
 3. Configure the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/master/config.lua) file 
 4. Add to your server.cfg `ensure radioPanicButton`
+5. Setup ace permissions *(more info in config file)*
+
+
+## Installation (pma-voice)
+1. Download the latest [release](https://github.com/Aidan4444/radioPanicButton/releases/latest)
+2. Rename the resource to just "radioPanicButton"
+3. Configure the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/master/config.lua) file 
+4. Add to your server.cfg `ensure radioPanicButton`
+5. Setup ace permissions *(more info in config file)*
+6. In the [config.lua](https://github.com/Aidan4444/radioPanicButton/blob/master/config.lua) file set `usePmaVoice = true`
+7. Add the following code below to **pma-voice**
+
+### server/server.lua
+```lua
+function getPlayersInRadioChannel(channel)
+	local returnChannel = radioData[channel]
+	if returnChannel then
+		return returnChannel
+	end
+	-- channel doesnt exist
+	return {}
+end
+
+function getPlayersInRadioChannels(...)
+	local channels = { ... }
+	local players = {}
+
+	for i = 1, #channels do
+		local channel = tonumber(channels[i])
+
+		if channel ~= nil then
+			if radioData[channel] ~= nil then
+				players[#players + 1] = radioData[channel]
+			end
+		end
+	end
+
+	return players
+end
+
+exports('getPlayersInRadioChannel', getPlayersInRadioChannel)
+exports('GetPlayersInRadioChannel', getPlayersInRadioChannel)
+
+exports('GetPlayersInRadioChannels', getPlayersInRadioChannels)
+exports('GetPlayersInRadioChannels', getPlayersInRadioChannels)
+```
+
+### client/client.lua
+```lua
+function GetPlayersInRadioChannels(...)
+
+    local channels = { ... }
+
+    local players = {}
+
+    for i = 1, #channels do
+
+        local channel = tonumber(channels[i])
+
+        if channel ~= nil then
+
+            if radioData[channel] ~= nil then
+
+                players[#players + 1] = radioData[channel]
+
+            end
+
+        end
+
+    end
+
+    return players
+
+end
+
+function GetPlayerRadioChannel(serverId)
+
+    if serverId ~= nil then 
+
+        if voiceData.radio > 0 then 
+
+            
+
+            return voiceData.radio
+
+        end 
+
+    end 
+
+end
+
+exports("GetPlayersInRadioChannels", GetPlayersInRadioChannels)
+
+exports("GetPlayerRadioChannel", GetPlayerRadioChannel)
+```
 
 
 ## Roadmap
