@@ -14,13 +14,24 @@ AddEventHandler('radioPanicButton:server:sendBlip', function(coords, streetName,
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             if config.blipsInBroadcastChannels then 
                 for _, broadcastChannel in pairs(config.broadcastChannels) do
-                    local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
-                    for _, player in pairs(playersInBroadcastChannels) do 
-                        for id, _ in pairs(player) do 
-                            if tostring(playerId) == tostring(id) then 
-                                TriggerClientEvent('radioPanicButton:client:panicBlip', playerId, coords, streetName, playerName)
+                    if config.usePmaVoice then 
+                        local playersInBroadcastChannels = exports['pma-voice']:GetPlayersInRadioChannels(broadcastChannel)
+                        for _, player in pairs(playersInBroadcastChannels) do 
+                            for id, _ in pairs(player) do 
+                                if tostring(playerId) == tostring(id) then 
+                                    TriggerClientEvent('radioPanicButton:client:panicBlip', playerId, coords, streetName, playerName)
+                                end 
                             end 
-                        end 
+                        end
+                    else
+                        local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
+                        for _, player in pairs(playersInBroadcastChannels) do 
+                            for id, _ in pairs(player) do 
+                                if tostring(playerId) == tostring(id) then 
+                                    TriggerClientEvent('radioPanicButton:client:panicBlip', playerId, coords, streetName, playerName)
+                                end 
+                            end 
+                        end
                     end 
                 end 
             else 
@@ -64,14 +75,25 @@ AddEventHandler('radioPanicButton:server:panicNotify', function(streetName, offi
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             if config.blipsInBroadcastChannels then 
                 for _, broadcastChannel in pairs(config.broadcastChannels) do
-                    local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
-                    for _, player in pairs(playersInBroadcastChannels) do 
-                        for id, _ in pairs(player) do 
-                            if tostring(playerId) == tostring(id) then 
-                                TriggerClientEvent('radioPanicButton:client:panicNotify', playerId, streetName, playerName)
+                    if config.usePmaVoice then 
+                        local playersInBroadcastChannels = exports['pma-voice']:GetPlayersInRadioChannels(broadcastChannel)
+                        for _, player in pairs(playersInBroadcastChannels) do 
+                            for id, _ in pairs(player) do 
+                                if tostring(playerId) == tostring(id) then 
+                                    TriggerClientEvent('radioPanicButton:client:panicNotify', playerId, streetName, playerName)
+                                end 
                             end 
                         end 
-                    end 
+                    else
+                        local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
+                        for _, player in pairs(playersInBroadcastChannels) do 
+                            for id, _ in pairs(player) do 
+                                if tostring(playerId) == tostring(id) then 
+                                    TriggerClientEvent('radioPanicButton:client:panicNotify', playerId, streetName, playerName)
+                                end 
+                            end 
+                        end 
+                    end
                 end 
             else 
                 TriggerClientEvent('radioPanicButton:client:panicBlip', playerId, coords, streetName, playerName)
@@ -85,14 +107,25 @@ AddEventHandler('radioPanicButton:server:panicButtonAudio', function(soundFile, 
     for _, playerId in ipairs(GetPlayers()) do 
         if IsPlayerAceAllowed(playerId, config.acePermissionName) then 
             for _, broadcastChannel in pairs(config.broadcastChannels) do
-                local playersInBroadcastChannels = exports['mumble-voip2']:GetPlayersInRadioChannels(broadcastChannel)
-                for _, player in pairs(playersInBroadcastChannels) do 
-                    for id, _ in pairs(player) do 
-                        if tostring(playerId) == tostring(id) then 
-                            TriggerClientEvent('radioPanicButton:client:playSound', playerId, soundFile)
+                if config.usePmaVoice then 
+                    local playersInBroadcastChannels = exports['pma-voice']:GetPlayersInRadioChannels(broadcastChannel)
+                    for _, player in pairs(playersInBroadcastChannels) do 
+                        for id, _ in pairs(player) do 
+                            if tostring(playerId) == tostring(id) then                                 
+                                TriggerClientEvent('radioPanicButton:client:playSound', playerId, soundFile)
+                            end 
                         end 
                     end 
-                end 
+                else 
+                    local playersInBroadcastChannels = exports['mumble-voip']:GetPlayersInRadioChannels(broadcastChannel)
+                    for _, player in pairs(playersInBroadcastChannels) do 
+                        for id, _ in pairs(player) do 
+                            if tostring(playerId) == tostring(id) then 
+                                TriggerClientEvent('radioPanicButton:client:playSound', playerId, soundFile)
+                            end 
+                        end 
+                    end 
+                end
             end 
         end
     end 
