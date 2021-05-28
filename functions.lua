@@ -26,7 +26,7 @@ end
 
 function panicButtonAudio() 
     
-    if config.playPanicButtonAudio then 
+    if config.playPanicButtonAudio then
         TriggerServerEvent('radioPanicButton:server:panicButtonAudio', 'panicButton', 0.8)
         Wait(4600)
     end 
