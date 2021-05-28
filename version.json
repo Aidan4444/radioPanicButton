@@ -1,9 +1,9 @@
 {
-    "version": "1.026",
+    "version": "1.031",
     "changelog": "https://github.com/Aidan_ogg/radioPanicButton/releases/latest",
 
     "fivem": {
-        "version": "1.026",
-        "changelog": "Added more config options."
+        "version": "1.031",
+        "changelog": "Added support for pma-voice."
     }
 }
